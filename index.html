@@ -30,6 +30,23 @@
       border: 3px solid white;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+    .cv-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 24px;
+      background-color: white;
+      color: #4a90e2;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      border: 2px solid white;
+      transition: all 0.2s ease;
+    }
+    .cv-button:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
     section {
       max-width: 800px;
       margin: 40px auto;
@@ -97,6 +114,7 @@
     @media (max-width: 600px) {
       header { padding: 30px 15px; }
       section { margin: 30px auto; padding: 0 15px; }
+      .profile-img { width: 120px; height: 120px; }
     }
   </style>
 </head>
@@ -106,6 +124,7 @@
     <img src="profile.jpg" alt="Mostafa H. Deldoost" class="profile-img">
     <h1>Hi, I'm Mostafa H. Deldoost</h1>
     <p>Welcome to my personal site!</p>
+    <a href="CV.pdf" class="cv-button" download>📄 Download Full CV</a>
   </header>
 
   <section id="about">
