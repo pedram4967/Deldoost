@@ -56,6 +56,7 @@
   </script>
   
   <style>
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -75,7 +76,7 @@
       color: white;
       padding: 70px 20px 80px;
       text-align: center;
-      overflow: hidden; /* Keeps the scrolling waves contained */
+      overflow: hidden;
     }
 
     /* 🌊 EEG WAVE ANIMATION LAYER */
@@ -83,16 +84,15 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 200%; /* Double width for seamless looping */
+      width: 200%;
       height: 100%;
-      pointer-events: none; /* Allows clicking through the waves */
-      animation: scrollEEG 12s linear infinite; /* Scrolling speed */
+      pointer-events: none;
+      animation: scrollEEG 12s linear infinite;
     }
     
-    /* The animation that moves the waves */
     @keyframes scrollEEG {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-150px); } /* Moves exactly one pattern width */
+      100% { transform: translateX(-150px); }
     }
 
     .profile-img {
@@ -106,12 +106,21 @@
       border: 4px solid rgba(255,255,255,0.95);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       position: relative;
-      z-index: 1; /* Keeps photo above waves */
+      z-index: 1;
     }
     
+    .header-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
     .cv-button {
       display: inline-block;
-      margin-top: 15px;
       padding: 10px 24px;
       background-color: white;
       color: #4a90e2;
@@ -120,8 +129,6 @@
       font-weight: 600;
       border: 2px solid white;
       transition: all 0.2s ease;
-      position: relative;
-      z-index: 1; /* Keeps button above waves */
     }
     .cv-button:hover {
       background-color: #f0f0f0;
@@ -213,16 +220,13 @@
     <div class="eeg-layer">
       <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <!-- Pattern 1: Spiky EEG Signal -->
           <pattern id="eegSpike" x="0" y="0" width="150" height="100" patternUnits="userSpaceOnUse">
              <path d="M0,50 L20,50 L25,20 L30,80 L35,50 L60,50 C80,20 100,80 120,50 T150,50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
           </pattern>
-          <!-- Pattern 2: Subtle Alpha Wave -->
           <pattern id="eegAlpha" x="0" y="0" width="150" height="100" patternUnits="userSpaceOnUse">
              <path d="M0,75 C30,40 60,110 90,75 C120,40 150,110 150,75" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
           </pattern>
         </defs>
-        <!-- Apply patterns to a rectangle that covers the area -->
         <rect width="100%" height="100%" fill="url(#eegSpike)" />
         <rect width="100%" height="100%" fill="url(#eegAlpha)" />
       </svg>
@@ -234,14 +238,28 @@
          class="profile-img">
     <h1>Hi, I'm Mostafa H. Deldoost</h1>
     <p>Interdisciplinary Researcher in Neuroeconomics & Behavioral Economics</p>
-    <a href="https://raw.githubusercontent.com/pedram4967/Deldoost/main/CV.pdf" 
-       class="cv-button" 
-       download>📄 Download Full CV (PDF)</a>
+    
+    <div class="header-buttons">
+      <a href="https://raw.githubusercontent.com/pedram4967/Deldoost/main/CV.pdf" class="cv-button" download>📄 Download Full CV (PDF)</a>
+      <a href="#teaching" class="cv-button">📚 Teaching Experience</a>
+    </div>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
     <p>My name is Mostafa H. Deldoost. I am an interdisciplinary researcher in neuroeconomics and behavioral economics. I am passionate about understanding what happens in the brain when we make decisions. I use EEG and eye-tracking techniques to connect neural activity with economic behavior, exploring how humans think and choose.</p>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching Experience</h2>
+    <p><strong>Faculty of Economics, University of Warsaw, Poland</strong> | 2020</p>
+    <ul style="list-style-type: disc; padding-left: 20px; margin: 10px 0;">
+      <li>📘 Behavioral Economics</li>
+      <li>📗 Intermediate Microeconomics II</li>
+    </ul>
+    <p style="color: #555; font-size: 0.95em; margin-top: 8px;">
+      Designed and delivered undergraduate lectures, integrated experimental modules, and mentored students in behavioral decision-making and microeconomic theory.
+    </p>
   </section>
 
   <section id="publications">
@@ -306,7 +324,6 @@
       <li>📧 Email: <a href="mailto:s.hosseini-del@uw.edu.pl">s.hosseini-del@uw.edu.pl</a> | <a href="mailto:mostafa.deldoost@pec.it">mostafa.deldoost@pec.it</a></li>
       <li>📱 Phone: <a href="tel:+393286070474">+39 328 607 0474</a></li>
       <li>💻 GitHub: <a href="https://github.com/pedram4967" target="_blank">github.com/pedram4967</a></li>
-      <!-- ✅ LOCATION UPDATED -->
       <li>📍 Location: Emilia-Romagna, Italy 🇮🇹 | Warsaw, Poland 🇵🇱</li>
     </ul>
   </section>
