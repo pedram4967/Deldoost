@@ -65,69 +65,36 @@
       color: #333;
     }
     
-    /* 🧠 Brain background with EEG signals ONLY behind the header/photo area */
+    /* 🧠 HEADER with Brain Background + EEG Waves */
     header {
+      position: relative;
       background: 
-        linear-gradient(135deg, rgba(74, 144, 226, 0.88), rgba(40, 80, 150, 0.92)),
+        linear-gradient(rgba(40, 80, 150, 0.85), rgba(30, 60, 120, 0.95)),
         url('https://images.unsplash.com/photo-1559757175-5700dde675bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')
-        center/cover no-repeat,
-        /* EEG wave pattern overlay */
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 50px,
-          rgba(255, 255, 255, 0.03) 50px,
-          rgba(255, 255, 255, 0.03) 100px
-        );
+        center/cover no-repeat;
       color: white;
       padding: 70px 20px 80px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      overflow: hidden; /* Keeps the scrolling waves contained */
     }
-    
-    /* Animated EEG wave lines */
-    header::before {
-      content: '';
+
+    /* 🌊 EEG WAVE ANIMATION LAYER */
+    .eeg-layer {
       position: absolute;
-      top: 20%;
-      left: -100%;
-      width: 300%;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.4) 20%, 
-        rgba(255, 255, 255, 0.6) 50%, 
-        rgba(255, 255, 255, 0.4) 80%, 
-        transparent
-      );
-      animation: eegWave 8s linear infinite;
-      opacity: 0.5;
+      top: 0;
+      left: 0;
+      width: 200%; /* Double width for seamless looping */
+      height: 100%;
+      pointer-events: none; /* Allows clicking through the waves */
+      animation: scrollEEG 12s linear infinite; /* Scrolling speed */
     }
     
-    header::after {
-      content: '';
-      position: absolute;
-      top: 60%;
-      left: -100%;
-      width: 300%;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.3) 20%, 
-        rgba(255, 255, 255, 0.5) 50%, 
-        rgba(255, 255, 255, 0.3) 80%, 
-        transparent
-      );
-      animation: eegWave 10s linear infinite 2s;
-      opacity: 0.4;
-    }
-    
-    @keyframes eegWave {
+    /* The animation that moves the waves */
+    @keyframes scrollEEG {
       0% { transform: translateX(0); }
-      100% { transform: translateX(33.33%); }
+      100% { transform: translateX(-150px); } /* Moves exactly one pattern width */
     }
-    
+
     .profile-img {
       width: 180px;
       height: 180px;
@@ -139,7 +106,7 @@
       border: 4px solid rgba(255,255,255,0.95);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       position: relative;
-      z-index: 1;
+      z-index: 1; /* Keeps photo above waves */
     }
     
     .cv-button {
@@ -154,7 +121,7 @@
       border: 2px solid white;
       transition: all 0.2s ease;
       position: relative;
-      z-index: 1;
+      z-index: 1; /* Keeps button above waves */
     }
     .cv-button:hover {
       background-color: #f0f0f0;
@@ -242,6 +209,26 @@
 <body>
 
   <header>
+    <!-- 🧠 EEG Wave Animation (SVG) -->
+    <div class="eeg-layer">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Pattern 1: Spiky EEG Signal -->
+          <pattern id="eegSpike" x="0" y="0" width="150" height="100" patternUnits="userSpaceOnUse">
+             <path d="M0,50 L20,50 L25,20 L30,80 L35,50 L60,50 C80,20 100,80 120,50 T150,50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+          </pattern>
+          <!-- Pattern 2: Subtle Alpha Wave -->
+          <pattern id="eegAlpha" x="0" y="0" width="150" height="100" patternUnits="userSpaceOnUse">
+             <path d="M0,75 C30,40 60,110 90,75 C120,40 150,110 150,75" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          </pattern>
+        </defs>
+        <!-- Apply patterns to a rectangle that covers the area -->
+        <rect width="100%" height="100%" fill="url(#eegSpike)" />
+        <rect width="100%" height="100%" fill="url(#eegAlpha)" />
+      </svg>
+    </div>
+
+    <!-- Content Layer -->
     <img src="https://raw.githubusercontent.com/pedram4967/Deldoost/main/profile.jpg" 
          alt="Mostafa H. Deldoost" 
          class="profile-img">
@@ -317,9 +304,10 @@
     <h2>Contact</h2>
     <ul>
       <li>📧 Email: <a href="mailto:s.hosseini-del@uw.edu.pl">s.hosseini-del@uw.edu.pl</a> | <a href="mailto:mostafa.deldoost@pec.it">mostafa.deldoost@pec.it</a></li>
-      <li>📱 Phone: <a href="tel:+393286070474">+39 328 6070 474</a></li>
+      <li>📱 Phone: <a href="tel:+393286070474">+39 328 607 0474</a></li>
       <li>💻 GitHub: <a href="https://github.com/pedram4967" target="_blank">github.com/pedram4967</a></li>
-      <li>📍 Location: Emilia-Romagna, Italy 🇮🇹 | Warsaw, Poland 🇵</li>
+      <!-- ✅ LOCATION UPDATED -->
+      <li>📍 Location: Emilia-Romagna, Italy 🇮🇹 | Warsaw, Poland 🇵🇱</li>
     </ul>
   </section>
 
