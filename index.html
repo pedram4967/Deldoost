@@ -21,10 +21,11 @@
       text-align: center;
     }
     .profile-img {
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      object-fit: cover;
+      object-fit: contain; /* THIS FIX: Shows whole head, no cropping */
+      background-color: #ffffff; /* White fill for rectangular photos */
       margin: 0 auto 15px;
       display: block;
       border: 3px solid white;
@@ -114,22 +115,24 @@
     @media (max-width: 600px) {
       header { padding: 30px 15px; }
       section { margin: 30px auto; padding: 0 15px; }
-      .profile-img { width: 120px; height: 120px; }
+      .profile-img { width: 140px; height: 140px; }
     }
   </style>
 </head>
 <body>
 
   <header>
+    <!-- Image updated to use 'contain' so your whole head is visible -->
     <img src="https://raw.githubusercontent.com/pedram4967/Deldoost/main/profile.jpg" 
          alt="Mostafa H. Deldoost" 
-         class="profile-img"
-         onerror="this.style.display='none'">
+         class="profile-img">
     <h1>Hi, I'm Mostafa H. Deldoost</h1>
     <p>Interdisciplinary Researcher in Neuroeconomics & Behavioral Economics</p>
-    <a href="https://github.com/pedram4967/Deldoost/raw/main/CV.pdf" 
+    
+    <!-- CV Button: Uses raw link to ensure it downloads -->
+    <a href="https://raw.githubusercontent.com/pedram4967/Deldoost/main/CV.pdf" 
        class="cv-button" 
-       target="_blank">📄 Download Full CV</a>
+       download>📄 Download Full CV (PDF)</a>
   </header>
 
   <section id="about">
@@ -186,24 +189,4 @@
       </li>
       <li>
         <span class="paper-title">Performance Measurement Model for the Supplier Selection Based on AHP</span>
-        <span class="paper-journal">International Journal of Engineering Business Management</span>
-        <span class="paper-type">Peer-reviewed • ISSN 1847-979</span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <ul>
-      <li>Email: <a href="mailto:s.hosseini-del@uw.edu.pl">s.hosseini-del@uw.edu.pl</a> | <a href="mailto:mostafa.deldoost@pec.it">mostafa.deldoost@pec.it</a></li>
-      <li>GitHub: <a href="https://github.com/pedram4967" target="_blank">github.com/pedram4967</a></li>
-      <li>Location: Ferrara, Italy 🇮🇹 | Warsaw, Poland 🇵🇱</li>
-    </ul>
-  </section>
-
-  <footer>
-    © 2026 Mostafa H. Deldoost. All rights reserved.
-  </footer>
-
-</body>
-</html>
+        <span class="paper-journal">International Journal of Engineering Business Management
