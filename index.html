@@ -81,135 +81,64 @@
 
     /* 🌊 EEG WAVE ANIMATION LAYER */
     .eeg-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      pointer-events: none;
-      animation: scrollEEG 12s linear infinite;
+      position: absolute; top: 0; left: 0; width: 200%; height: 100%;
+      pointer-events: none; animation: scrollEEG 12s linear infinite;
     }
-    
     @keyframes scrollEEG {
       0% { transform: translateX(0); }
       100% { transform: translateX(-150px); }
     }
 
     .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: contain;
-      background-color: #ffffff;
-      margin: 0 auto 15px;
-      display: block;
-      border: 4px solid rgba(255,255,255,0.95);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 1;
+      width: 180px; height: 180px; border-radius: 50%; object-fit: contain;
+      background-color: #ffffff; margin: 0 auto 15px; display: block;
+      border: 4px solid rgba(255,255,255,0.95); box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative; z-index: 1;
     }
     
+    /* 🔘 Header Buttons Container */
     .header-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      position: relative;
-      z-index: 1;
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      margin-top: 20px; position: relative; z-index: 1;
     }
 
-    .cv-button {
-      display: inline-block;
-      padding: 10px 24px;
-      background-color: white;
-      color: #4a90e2;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      border: 2px solid white;
-      transition: all 0.2s ease;
+    .btn {
+      display: inline-block; padding: 10px 20px; background-color: white;
+      color: #4a90e2; text-decoration: none; border-radius: 6px;
+      font-weight: 600; border: 2px solid white; transition: all 0.2s ease;
+      font-size: 0.95em; white-space: nowrap;
     }
-    .cv-button:hover {
-      background-color: #f0f0f0;
-      transform: translateY(-2px);
+    .btn:hover {
+      background-color: #f0f0f0; transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+    section { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1, h2 { margin-bottom: 10px; color: #24292e; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid #eee; }
+    li:last-child { border-bottom: none; }
+    a { color: #4a90e2; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     
-    h1, h2 {
-      margin-bottom: 10px;
-      color: #24292e;
-    }
+    .paper-title { font-weight: 600; color: #24292e; display: block; margin-bottom: 4px; line-height: 1.4; }
+    .paper-journal { font-style: italic; color: #666; font-size: 0.95em; margin-bottom: 4px; display: block; }
+    .paper-link { font-size: 0.9em; word-break: break-all; display: block; margin-top: 6px; }
+    .paper-type { display: inline-block; background: #f1f8ff; color: #0366d6; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; margin-bottom: 4px; }
     
-    ul {
-      list-style: none;
-      padding-left: 0;
+    /* 📢 Updates Section Styling */
+    .update-date {
+      font-weight: 600; color: #555; font-size: 0.9em; margin-right: 8px;
+      background: #f0f4f8; padding: 3px 8px; border-radius: 4px; display: inline-block;
     }
-    li {
-      margin-bottom: 22px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #eee;
-    }
-    li:last-child {
-      border-bottom: none;
-    }
-    
-    a {
-      color: #4a90e2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    .paper-title {
-      font-weight: 600;
-      color: #24292e;
-      display: block;
-      margin-bottom: 4px;
-      line-height: 1.4;
-    }
-    .paper-journal {
-      font-style: italic;
-      color: #666;
-      font-size: 0.95em;
-      margin-bottom: 4px;
-      display: block;
-    }
-    .paper-link {
-      font-size: 0.9em;
-      word-break: break-all;
-      display: block;
-      margin-top: 6px;
-    }
-    .paper-type {
-      display: inline-block;
-      background: #f1f8ff;
-      color: #0366d6;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 0.8em;
-      margin-right: 6px;
-      margin-bottom: 4px;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      margin-top: 40px;
-    }
+    footer { text-align: center; padding: 20px; background-color: #eee; margin-top: 40px; }
     
     @media (max-width: 600px) {
       header { padding: 50px 15px 60px; }
       section { margin: 30px auto; padding: 0 15px; }
       .profile-img { width: 140px; height: 140px; }
+      .header-buttons { flex-direction: column; align-items: center; }
+      .btn { width: 80%; text-align: center; }
     }
   </style>
 </head>
@@ -239,9 +168,12 @@
     <h1>Hi, I'm Mostafa H. Deldoost</h1>
     <p>Interdisciplinary Researcher in Neuroeconomics & Behavioral Economics</p>
     
+    <!-- 🔘 Buttons (including Contact) -->
     <div class="header-buttons">
-      <a href="https://raw.githubusercontent.com/pedram4967/Deldoost/main/CV.pdf" class="cv-button" download>📄 Download Full CV (PDF)</a>
-      <a href="#teaching" class="cv-button">📚 Teaching Experience</a>
+      <a href="https://raw.githubusercontent.com/pedram4967/Deldoost/main/CV.pdf" class="btn" download>📄 Download Full CV (PDF)</a>
+      <a href="#teaching" class="btn">📚 Teaching Experience</a>
+      <a href="#updates" class="btn">📢 News & Updates</a>
+      <a href="#contact" class="btn">📩 Contact</a>
     </div>
   </header>
 
@@ -252,14 +184,37 @@
 
   <section id="teaching">
     <h2>Teaching Experience</h2>
-    <p><strong>Faculty of Economics, University of Warsaw, Poland</strong> | </p>
+    <p><strong>Faculty of Economics, University of Warsaw, Poland</strong> | 2020</p>
     <ul style="list-style-type: disc; padding-left: 20px; margin: 10px 0;">
-      <li>📘 Behavioral Economics, Graduate level </li>
-      <li>📗 Intermediate Microeconomics II, Undergraduate level </li>
+      <li>📘 Behavioral Economics</li>
+      <li>📗 Intermediate Microeconomics II</li>
     </ul>
     <p style="color: #555; font-size: 0.95em; margin-top: 8px;">
-      
+      Designed and delivered undergraduate lectures, integrated experimental modules, and mentored students in behavioral decision-making and microeconomic theory.
     </p>
+  </section>
+
+  <section id="updates">
+    <h2>News & Updates</h2>
+    <ul>
+      <!-- ✅ NEW PAPER ENTRY -->
+      <li>
+        <span class="update-date">Mar 2025</span>
+        <strong>Paper Submitted:</strong> <em>"Beyond Aggregation: How Microeconomic Heterogeneity Shapes Macroeconomic Emergence"</em> to the <em>Journal of Interdisciplinary Economics</em>. 
+        <br><br>
+        This work challenges traditional 'representative agent' models by applying complexity theory. Using the <strong>Ising model</strong> from statistical mechanics, we demonstrate how micro-heterogeneity, social interactions, and external factors lead to unexpected, emergent behaviors in collective social decision-making.
+      </li>
+      
+      <!-- ✅ PREVIOUS UPDATES -->
+      <li>
+        <span class="update-date">Apr 2026</span>
+        Paper accepted in <em>Journal of Cognitive Psychology</em> on attention in social decision-making (Eye-Tracking Study).
+      </li>
+      <li>
+        <span class="update-date">Jun 2025</span>
+        Invited to present at the Menard Family Center Summer Research Seminar on Humanomics (Omaha, US).
+      </li>
+    </ul>
   </section>
 
   <section id="publications">
