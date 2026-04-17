@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pedram4967.github.io/Deldoost/sitemap.xml
